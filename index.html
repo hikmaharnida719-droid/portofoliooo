@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Profesional | Hikmah Arnida Arif</title>
+    
+    <!-- Google Fonts untuk kesan premium & modern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & VARIABEL --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-dark: #0f1115;       /* Latar belakang gelap premium */
+            --bg-card: #181b22;       /* Warna kontainer kartu */
+            --accent: #e07a5f;        /* Terracotta modern */
+            --accent-muted: #f4f1de;  /* Cream lembut */
+            --text-main: #f3f4f6;     /* Teks utama terang */
+            --text-muted: #9ca3af;    /* Teks deskripsi hambar */
+            --border: rgba(255, 255, 255, 0.05);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 17, 21, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(224, 122, 95, 0.3);
+        }
+
+        /* --- HERO SECTION (BIO FIKTIF) --- */
+        .hero {
+            padding: 11rem 2rem 7rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+            min-height: 90vh;
+        }
+
+        .hero-content {
+            flex: 1.2;
+        }
+
+        .badge {
+            background: rgba(224, 122, 95, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(224, 122, 95, 0.2);
+            padding: 0.4rem 1.2rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 4rem;
+            line-height: 1.1;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-image-area {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Representasi visual abstrak geometris & mewah pengganti foto */
+        .hero-shape {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent), #f4a261);
+            border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 30px 60px rgba(224, 122, 95, 0.25);
+            animation: waveShape 12s ease-in-out infinite alternate;
+        }
+
+        .hero-shape::before {
+            content: '';
+            position: absolute;
+            width: 106%;
+            height: 106%;
+            border: 1px dashed var(--accent);
+            border-radius: inherit;
+            animation: spin 20s linear infinite;
+        }
+
+        .hero-shape span {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 5.5rem;
+            font-weight: 800;
+            color: var(--bg-dark);
+        }
+
+        @keyframes waveShape {
+            0% { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; }
+            100% { border-radius: 65% 35% 45% 55% / 52% 58% 42% 48%; }
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            padding: 0.9rem 2.2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(224, 122, 95, 0.3);
+            background-color: #e88c75;
+        }
+
+        /* --- UNIVERSAL SECTIONS --- */
+        section {
+            padding: 8rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 4rem;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
+        }
+
+        /* --- PENGALAMAN KERJA (FIKTIF) --- */
+        .experience-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .exp-row {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            border-radius: 20px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            transition: var(--transition);
+        }
+
+        .exp-row:hover {
+            border-color: rgba(224, 122, 95, 0.3);
+            transform: scale(1.01);
+        }
+
+        .exp-time {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+        }
+
+        .exp-details h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .exp-details h4 {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 1.2rem;
+        }
+
+        .exp-details p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- PENCAPAIAN DAN KARIR (FIKTIF) --- */
+        .achieve-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .achieve-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .achieve-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .achieve-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(224, 122, 95, 0.03), transparent);
+            border-radius: 24px;
+            pointer-events: none;
+        }
+
+        .num-tag {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 3rem;
+            color: rgba(224, 122, 95, 0.1);
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            line-height: 1;
+        }
+
+        .achieve-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            padding-right: 2.5rem;
+        }
+
+        .achieve-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER / KONTAK --- */
+        .footer-cta {
+            background: linear-gradient(180deg, transparent, rgba(224, 122, 95, 0.05));
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 7rem 2rem 4rem 2rem;
+        }
+
+        .cta-box {
+            max-width: 600px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .cta-box h2 {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .cta-box p {
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .email-btn {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 6px;
+            transition: var(--transition);
+        }
+
+        .email-btn:hover {
+            color: var(--accent);
+            border-bottom-color: var(--text-main);
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.2);
+            margin-top: 4rem;
+        }
+
+        /* --- RESPONSIVE LAYOUT --- */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 9rem;
+                gap: 3.5rem;
+            }
+            .hero p { margin: 0 auto 2.5rem auto; }
+            .exp-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .hero h1 { font-size: 3rem; }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.4rem; }
+            .cta-box h2 { font-size: 2rem; }
+            .hero-shape { width: 220px; height: 220px; }
+            .hero-shape span { font-size: 4rem; }
+            .nav-links { display: none; } /* Menyederhanakan tampilan mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">HA<span>A.</span></a>
+            <ul class="nav-links">
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#pengalaman">Pengalaman</a></li>
+                <li><a href="#pencapaian">Pencapaian</a></li>
+                <li><a href="#kontak">Hubungi</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (BIO FIKTIF) -->
+    <section class="hero" id="tentang">
+        <div class="hero-content">
+            <span class="badge">Business Analyst & Digital Strategist</span>
+            <h1>Hikmah Arnida Arif</h1>
+            <p>
+                Saya adalah mahasiswa tingkat akhir di bidang Sistem Informasi Corporate yang mendedikasikan diri pada analisis data strategis dan optimasi ekosistem digital bisnis. Melalui pendekatan analitis yang tajam, saya berfokus membantu organisasi merancang alur kerja yang efisien serta melahirkan inovasi berbasis teknologi yang solutif.
+            </p>
+            <a href="#kontak" class="btn">Mulai Kolaborasi</a>
+        </div>
+        <div class="hero-image-area">
+            <div class="hero-shape">
+                <span>H</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PENGALAMAN KERJA SECTION (FIKTIF) -->
+    <section id="pengalaman">
+        <div class="section-title">Pengalaman Kerja</div>
+        <div class="experience-container">
+            
+            <div class="exp-row">
+                <div class="exp-time">Maret 2025 — Sekarang</div>
+                <div class="exp-details">
+                    <h3>Junior Business Analyst (Magang)</h3>
+                    <h4>Vortex Global Technology, Jakarta</h4>
+                    <p>Bertanggung jawab menganalisis data operasional perusahaan, menyusun model proyeksi efisiensi rantai pasokan, serta merancang visualisasi dasbor interaktif yang membantu jajaran manajemen dalam pengambilan kebijakan taktis bulanan.</p>
+                </div>
+            </div>
+
+            <div class="exp-row">
+                <div class="exp-time">September — Desember 2024</div>
+                <div class="exp-details">
+                    <h3>Head of Public Relations</h3>
+                    <h4>Sinergi Muda Foundation</h4>
+                    <p>Mengelola strategi komunikasi digital dan kemitraan strategis untuk kampanye sosial berskala nasional. Berhasil menaikkan indeks interaksi media sosial organisasi sebesar 45% dan mengamankan 10+ kerja sama media eksternal.</p>
+                </div>
+            </div>
+
+            <div class="exp-row">
+                <div class="exp-time">Februari — Juli 2024</div>
+                <div class="exp-details">
+                    <h3>Content Strategist Freelance</h3>
+                    <h4>Arka Kreatif Studio</h4>
+                    <p>Merancang pilar konten (*content pillars*) serta mengoptimalkan strategi SEO untuk berbagai jenama (*brand*) lokal, mendongkrak trafik organik situs web klien rata-rata mencapai 30% dalam kurun waktu tiga bulan.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PENCAPAIAN & KARIR SECTION (FIKTIF) -->
+    <section id="pencapaian">
+        <div class="section-title">Pencapaian & Karir</div>
+        <div class="achieve-grid">
+            
+            <div class="achieve-card">
+                <div class="num-tag">01</div>
+                <h3>Pemenang Utama Business Case Competition 2025</h3>
+                <p>Meraih peringkat pertama dalam kompetisi nasional analisis bisnis di Techlnnovate Summit berkat solusi digitalisasi logistik untuk ketahanan pangan.</p>
+            </div>
+
+            <div class="achieve-card">
+                <div class="num-tag">02</div>
+                <h3>Sertifikasi Internasional Scrum Product Owner</h3>
+                <p>Memperoleh validasi global kompetensi manajemen produk tangkas (*Agile Product Management*) dari Scrum Alliance untuk pengelolaan siklus hidup software digital.</p>
+            </div>
+
+            <div class="achieve-card">
+                <div class="num-tag">03</div>
+                <h3>Delegasi Mahasiswa Berprestasi Global</h3>
+                <p>Terpilih sebagai salah satu dari 15 perwakilan mahasiswa nasional dalam forum akselerasi inovasi pemuda yang diselenggarakan di Singapura.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- KONTAK & FOOTER SECTION -->
+    <section class="footer-cta" id="kontak">
+        <div class="cta-box">
+            <h2>Mari Ciptakan Sinergi Baru</h2>
+            <p>Saya selalu bersemangat untuk menyambut ide baru, tawaran karier, ataupun diskusi proyek yang menantang. Silakan hubungi saya melalui surat elektronik di bawah ini.</p>
+            <a href="mailto:arnidahikmah@fictionalmail.com" class="email-btn">arnidahikmah@fictionalmail.com</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Hikmah Arnida Arif. All rights reserved. Dirancang dengan profesionalisme tinggi.
+        </div>
+    </section>
+
+</body>
+</html>
