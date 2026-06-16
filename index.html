@@ -92,7 +92,7 @@
             text-shadow: 0 0 10px rgba(224, 122, 95, 0.3);
         }
 
-        /* --- HERO SECTION (BIO FIKTIF) --- */
+        /* --- HERO SECTION --- */
         .hero {
             padding: 11rem 2rem 7rem 2rem;
             max-width: 1200px;
@@ -144,11 +144,11 @@
             align-items: center;
         }
 
-        /* Representasi visual abstrak geometris & mewah pengganti foto */
+        /* Bingkai visual geometris yang presisi dan mewah untuk foto */
         .hero-shape {
             position: relative;
-            width: 300px;
-            height: 300px;
+            width: 320px;
+            height: 320px;
             background: linear-gradient(135deg, var(--accent), #f4a261);
             border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
             display: flex;
@@ -156,23 +156,34 @@
             justify-content: center;
             box-shadow: 0 30px 60px rgba(224, 122, 95, 0.25);
             animation: waveShape 12s ease-in-out infinite alternate;
+            overflow: hidden; /* Memotong ujung foto agar mengikuti lekuk dinamis */
+            border: 4px solid rgba(255, 255, 255, 0.1);
         }
 
         .hero-shape::before {
             content: '';
             position: absolute;
-            width: 106%;
-            height: 106%;
-            border: 1px dashed var(--accent);
+            width: 108%;
+            height: 108%;
+            border: 1.5px dashed var(--accent);
             border-radius: inherit;
             animation: spin 20s linear infinite;
+            pointer-events: none;
+            z-index: 2;
         }
 
-        .hero-shape span {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 5.5rem;
-            font-weight: 800;
-            color: var(--bg-dark);
+        /* Pengaturan foto profil di dalam container dinamis */
+        .hero-profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%; /* Memfokuskan area wajah subjek foto */
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .hero-shape:hover .hero-profile-img {
+            transform: scale(1.08) rotate(1deg);
         }
 
         @keyframes waveShape {
@@ -194,6 +205,8 @@
             font-weight: 600;
             font-size: 0.95rem;
             transition: var(--transition);
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -226,7 +239,7 @@
             background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
         }
 
-        /* --- PENGALAMAN KERJA (FIKTIF) --- */
+        /* --- PENGALAMAN KERJA --- */
         .experience-container {
             display: flex;
             flex-direction: column;
@@ -273,7 +286,7 @@
             font-size: 0.95rem;
         }
 
-        /* --- PENCAPAIAN DAN KARIR (FIKTIF) --- */
+        /* --- PENCAPAIAN DAN KARIR --- */
         .achieve-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -326,6 +339,215 @@
         .achieve-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
+        }
+
+        /* --- ✨ AI INTERACTIVE HUB --- */
+        .ai-section {
+            background: linear-gradient(180deg, transparent, rgba(224, 122, 95, 0.02));
+        }
+
+        .ai-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .ai-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(224, 122, 95, 0.15);
+            padding: 2.5rem;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-card::after {
+            content: '✨';
+            position: absolute;
+            font-size: 5rem;
+            right: -1rem;
+            bottom: -1rem;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .ai-card h3 {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 1.6rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ai-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Gaya Sembang AI (Chatbox) */
+        .chat-container {
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(15, 17, 21, 0.4);
+            overflow: hidden;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1.2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 0.8rem 1.2rem;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .msg-user {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .msg-ai {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .chat-input-area {
+            display: flex;
+            border-top: 1px solid var(--border);
+            background: rgba(15, 17, 21, 0.8);
+        }
+
+        .chat-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 1rem;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .chat-send {
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            font-weight: 600;
+            padding: 0 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chat-send:hover {
+            color: #e88c75;
+        }
+
+        /* Gaya Penjana Strategi AI */
+        .strategy-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input {
+            background-color: rgba(15, 17, 21, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.9rem 1.2rem;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent);
+            background-color: rgba(15, 17, 21, 0.8);
+        }
+
+        .strategy-output {
+            border: 1px dashed rgba(224, 122, 95, 0.3);
+            background: rgba(224, 122, 95, 0.02);
+            border-radius: 16px;
+            padding: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            min-height: 120px;
+            max-height: 250px;
+            overflow-y: auto;
+            line-height: 1.6;
+        }
+
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: rgba(224, 122, 95, 0.12);
+            border: 1px solid rgba(224, 122, 95, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            align-self: flex-start;
+        }
+
+        /* Animasi Loader Elok */
+        .typing-loader {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        .typing-loader span {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .typing-loader span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-loader span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
         }
 
         /* --- FOOTER / KONTAK --- */
@@ -387,14 +609,18 @@
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
-            .hero h1 { font-size: 3rem; }
+            .hero h1 { font-size: 3.2rem; }
+            .hero-shape { width: 280px; height: 280px; }
+            .ai-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
 
         @media (max-width: 600px) {
             .hero h1 { font-size: 2.4rem; }
             .cta-box h2 { font-size: 2rem; }
-            .hero-shape { width: 220px; height: 220px; }
-            .hero-shape span { font-size: 4rem; }
+            .hero-shape { width: 240px; height: 240px; }
             .nav-links { display: none; } /* Menyederhanakan tampilan mobile */
         }
     </style>
@@ -409,12 +635,13 @@
                 <li><a href="#tentang">Tentang</a></li>
                 <li><a href="#pengalaman">Pengalaman</a></li>
                 <li><a href="#pencapaian">Pencapaian</a></li>
+                <li><a href="#ai-hub">Hub AI</a></li>
                 <li><a href="#kontak">Hubungi</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- HERO SECTION (BIO FIKTIF) -->
+    <!-- HERO SECTION -->
     <section class="hero" id="tentang">
         <div class="hero-content">
             <span class="badge">Business Analyst & Digital Strategist</span>
@@ -426,12 +653,18 @@
         </div>
         <div class="hero-image-area">
             <div class="hero-shape">
-                <span>H</span>
+                <!-- Foto utama yang diambil dari referensi pengguna terbaru -->
+                <img 
+                    src="WhatsApp Image 2026-06-16 at 12.10.10_4.jpeg" 
+                    alt="Hikmah Arnida Arif" 
+                    class="hero-profile-img"
+                    onerror="this.onerror=null; this.src='https://placehold.co/600x600/181b22/e07a5f?text=HAA';"
+                >
             </div>
         </div>
     </section>
 
-    <!-- PENGALAMAN KERJA SECTION (FIKTIF) -->
+    <!-- PENGALAMAN KERJA SECTION -->
     <section id="pengalaman">
         <div class="section-title">Pengalaman Kerja & Magang</div>
         <div class="experience-container">
@@ -466,7 +699,7 @@
         </div>
     </section>
 
-    <!-- PENCAPAIAN & KARIR SECTION (FIKTIF) -->
+    <!-- PENCAPAIAN & KARIR SECTION -->
     <section id="pencapaian">
         <div class="section-title">Pencapaian & Karir</div>
         <div class="achieve-grid">
@@ -492,6 +725,58 @@
         </div>
     </section>
 
+    <!-- ✨ AI INTERACTIVE HUB SECTION -->
+    <section id="ai-hub" class="ai-section">
+        <div class="section-title">Sudut Interaktif AI</div>
+        <div class="ai-grid">
+            
+            <!-- Alat Sembang Asisten AI -->
+            <div class="ai-card">
+                <div class="ai-badge">✨ KONSULTASI PORTFOLIO</div>
+                <h3>Sembang dengan Asisten Hikmah</h3>
+                <p>Mempunyai pertanyaan mengenai kemahiran, latar belakang akademik atau projek sistem informasi saya? Tanya terus di sini!</p>
+                
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message msg-ai">
+                            Halo! Saya asisten pintar Hikmah. Bagaimana saya boleh membantu anda hari ini?
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chatInput" class="chat-input" placeholder="Tanya tentang pengalaman magang, dll..." onkeydown="handleChatKey(event)">
+                        <button onclick="sendChatMessage()" class="chat-send">Kirim</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alat Penjana Strategi Digital -->
+            <div class="ai-card">
+                <div class="ai-badge">✨ STRATEGI DIGITAL KILAT</div>
+                <h3>Cadangan Strategi Bisnis</h3>
+                <p>Masukkan bidang perniagaan dan masalah utama anda untuk melihat simulasi tindakan automasi digital yang akan saya sarankan.</p>
+                
+                <div class="strategy-form">
+                    <div class="form-group">
+                        <label for="industryInput">Industri Perniagaan</label>
+                        <input type="text" id="industryInput" class="form-input" placeholder="Contoh: Logistik, Kedai Kopi, E-Dagang">
+                    </div>
+                    <div class="form-group">
+                        <label for="painpointInput">Masalah Utama</label>
+                        <input type="text" id="painpointInput" class="form-input" placeholder="Contoh: Pengurusan stok lambat, kurang jualan">
+                    </div>
+                    <button onclick="generateStrategy()" class="btn" style="width: 100%; text-align: center;">
+                        ✨ Bina Strategi Digital
+                    </button>
+                </div>
+
+                <div class="strategy-output" id="strategyOutput">
+                    Draf cadangan strategi perniagaan anda akan dipaparkan di sini...
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- KONTAK & FOOTER SECTION -->
     <section class="footer-cta" id="kontak">
         <div class="cta-box">
@@ -504,5 +789,182 @@
         </div>
     </section>
 
+    <!-- ✨ GEMINI INTEGRATION JAVASCRIPT -->
+    <script>
+        // Konfigurasi Gemini API dengan mekanisme "Exponential Backoff"
+        const apiKey = "";
+        const modelName = "gemini-2.5-flash-preview-09-2025";
+
+        async function panggilGeminiApi(payload) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
+            let delay = 1000; // Mulai dengan kelewatan 1 saat
+
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        return await response.json();
+                    }
+                } catch (error) {
+                    // Teruskan cuba tanpa mencetak ke konsol mengikut peraturan
+                }
+                
+                // Tunggu berdasarkan kelewatan eksponen sebelum mencuba lagi
+                await new Promise(resolve => setTimeout(resolve, delay));
+                delay *= 2;
+            }
+
+            throw new Error("Talian sibuk atau gangguan rangkaian. Sila cuba sekali lagi sebentar sahaja.");
+        }
+
+        // --- SISTEM SEMBANG ASISTEN AI ---
+        const systemPromptChat = `Anda adalah Asisten AI profesional untuk portfolio Hikmah Arnida Arif. 
+Hikmah ialah mahasiswa akhir Sistem Informasi Corporate, Business Analyst, dan Digital Strategist. 
+Gunakan maklumat di bawah untuk menjawab pelawat dengan gaya mesra, ringkas, profesional dan sangat menyakinkan. 
+Jawab dalam bahasa yang sama digunakan oleh pelawat (Melayu/Indonesia/English).
+
+Maklumat Profil Hikmah:
+- Pendidikan: Mahasiswa tingkat akhir Sistem Informasi Corporate.
+- Fokus: Analisis data strategis, reka bentuk aliran kerja cekap, dan optimasi ekosistem digital perniagaan.
+- Pengalaman Kerja & Magang:
+  1. Junior Business Analyst di Vortex Global Technology, Jakarta (Maret 2025 - Sekarang). Menganalisis operasi, membina unjuran logistik, dan menghasilkan visualisasi dashboard pengurusan.
+  2. Head of Public Relations di Sinergi Muda Foundation (Sept - Dis 2024). Meningkatkan interaksi media sosial sebanyak 45%.
+  3. Content Strategist Freelance di Arka Kreatif Studio (Feb - Julai 2024). Meningkatkan trafik organik laman web sebanyak 30% menerusi SEO.
+- Pencapaian Utama: 
+  - Juara 1 Business Case Competition 2025 di TechInnovate Summit.
+  - Pensijilan Scrum Product Owner daripada Scrum Alliance.
+  - Delegasi Mahasiswa Berprestasi Global di Singapura.
+
+Pastikan jawapan anda sentiasa mempromosikan kelebihan Hikmah untuk diambil bekerja atau berkolaborasi. Jawab dalam 2-3 ayat sahaja jika boleh supaya padat.`;
+
+        async function sendChatMessage() {
+            const chatInput = document.getElementById('chatInput');
+            const chatMessages = document.getElementById('chatMessages');
+            const messageText = chatInput.value.trim();
+
+            if (!messageText) return;
+
+            // Tambah mesej pengguna ke skrin sembang
+            appendMessage(messageText, 'msg-user');
+            chatInput.value = '';
+
+            // Papar petunjuk menaip (loader)
+            const loaderId = appendTypingLoader();
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            const payload = {
+                contents: [{
+                    parts: [{ text: messageText }]
+                }],
+                systemInstruction: {
+                    parts: [{ text: systemPromptChat }]
+                }
+            };
+
+            try {
+                const data = await panggilGeminiApi(payload);
+                removeLoader(loaderId);
+                
+                const aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "Maaf, saya tidak dapat memproses jawapan pada waktu ini.";
+                appendMessage(aiResponse, 'msg-ai');
+            } catch (err) {
+                removeLoader(loaderId);
+                appendMessage("Maaf, terdapat ralat teknikal. Sila cuba menghantar semula soalan anda.", 'msg-ai');
+            }
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function handleChatKey(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        function appendMessage(text, className) {
+            const chatMessages = document.getElementById('chatMessages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${className}`;
+            msgDiv.textContent = text;
+            chatMessages.appendChild(msgDiv);
+        }
+
+        function appendTypingLoader() {
+            const chatMessages = document.getElementById('chatMessages');
+            const loaderDiv = document.createElement('div');
+            const uniqueId = 'loader_' + Date.now();
+            loaderDiv.id = uniqueId;
+            loaderDiv.className = 'message msg-ai';
+            loaderDiv.innerHTML = `
+                <div class="typing-loader">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            `;
+            chatMessages.appendChild(loaderDiv);
+            return uniqueId;
+        }
+
+        function removeLoader(id) {
+            const loader = document.getElementById(id);
+            if (loader) loader.remove();
+        }
+
+        // --- PENJANA STRATEGI DIGITAL AI ---
+        async function generateStrategy() {
+            const industry = document.getElementById('industryInput').value.trim();
+            const painpoint = document.getElementById('painpointInput').value.trim();
+            const outputDiv = document.getElementById('strategyOutput');
+
+            if (!industry || !painpoint) {
+                outputDiv.innerHTML = "<span style='color: #e07a5f;'>Sila masukkan jenis industri dan masalah utama perniagaan anda terlebih dahulu!</span>";
+                return;
+            }
+
+            outputDiv.innerHTML = `
+                <div style="display: flex; flex-direction: column; gap: 8px; align-items: center; justify-content: center; height: 100px;">
+                    <div class="typing-loader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Sedang merangka strategi sistem informasi...</span>
+                </div>
+            `;
+
+            const promptText = `Saya mempunyai perniagaan dalam industri "${industry}" dan menghadapi masalah utama: "${painpoint}". 
+Sebagai seorang Business Analyst & Digital Strategist bertaraf profesional, sila berikan draf ringkas strategi automasi/sistem informasi terbaik. 
+Formatkan jawapan dalam 3 langkah tindakan konkrit (Langkah 1, 2, 3) yang berimpak tinggi dan mudah difahami. Jawab dengan penuh bergaya.`;
+
+            const systemPromptStrategy = "Anda adalah simulasi kepakaran Hikmah Arnida Arif selaku Business Analyst dan penganalisis Sistem Informasi Korporat. Berikan nasihat penyelesaian digital yang sangat tajam, kreatif, dan profesional dalam bahasa Indonesia/Melayu.";
+
+            const payload = {
+                contents: [{
+                    parts: [{ text: promptText }]
+                }],
+                systemInstruction: {
+                    parts: [{ text: systemPromptStrategy }]
+                }
+            };
+
+            try {
+                const data = await panggilGeminiApi(payload);
+                const aiResult = data.candidates?.[0]?.content?.parts?.[0]?.text || "Ralat menjana strategi. Sila cuba sebentar lagi.";
+                
+                // Format teks ringkas untuk pemaparan kemas
+                outputDiv.innerHTML = aiResult.replace(/\n/g, '<br>');
+            } catch (err) {
+                outputDiv.innerHTML = "<span style='color: #e07a5f;'>Gagal menjana strategi digital. Sila semak sambungan rangkaian anda dan cuba lagi.</span>";
+            }
+        }
+    </script>
 </body>
 </html>
